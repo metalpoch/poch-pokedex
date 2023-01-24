@@ -6,7 +6,7 @@ import {
   GiCancel,
 } from "react-icons/gi";
 
-const Card = ({ data }) => {
+const Card = ({ pokemons }) => {
   const icon = (stat) => {
     if (stat === "hp") return <RiHeart2Fill style={{ color: "red" }} />;
     if (stat === "attack") return <RiSwordFill style={{ color: "brown" }} />;
@@ -21,7 +21,7 @@ const Card = ({ data }) => {
 
   return (
     <div className="row">
-      {data.map((pokemon, i) => {
+      {pokemons.map((pokemon, i) => {
         return (
           <div className="col card" key={i}>
             <img

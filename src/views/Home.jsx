@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <>
       <Search />
-      <Card data={pokemon} />
+      <Card pokemons={pokemon} />
     </>
   );
 };
