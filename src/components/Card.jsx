@@ -1,3 +1,5 @@
+import { PokemonContext } from "../context/PokemonContext";
+import { useContext } from "react";
 import { RiHeart2Fill, RiSwordFill, RiShieldFill } from "react-icons/ri";
 import {
   GiMineExplosion,
@@ -6,7 +8,9 @@ import {
   GiCancel,
 } from "react-icons/gi";
 
-const Card = ({ pokemons }) => {
+const Card = () => {
+  const { pokemons } = useContext(PokemonContext);
+
   const icon = (stat) => {
     if (stat === "hp") return <RiHeart2Fill style={{ color: "red" }} />;
     if (stat === "attack") return <RiSwordFill style={{ color: "brown" }} />;
@@ -32,9 +36,9 @@ const Card = ({ pokemons }) => {
 
             <h1 className="card-title">{pokemon.name.toUpperCase()}</h1>
             <div className="card-body">
-              {pokemon.stats.map((stat) => {
+              {pokemon.stats.map((stat, i) => {
                 return (
-                  <p>
+                  <p key={i}>
                     {icon(stat.stat.name)}{" "}
                     {`${stat.stat.name}: ${stat.base_stat}`}
                   </p>
