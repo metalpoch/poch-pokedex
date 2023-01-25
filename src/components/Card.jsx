@@ -26,13 +26,11 @@ const Card = () => {
   return (
     <div className="row">
       {pokemons.map((pokemon, i) => {
+        let image = pokemon.sprites.other.home.front_default;
+        image ??= pokemon.sprites.other["official-artwork"]["front_default"];
         return (
           <div className="col card" key={i}>
-            <img
-              className="card-image"
-              width={"200px"}
-              src={pokemon.sprites.other.home.front_default}
-            />
+            <img className="card-image" width={"200px"} src={image} />
 
             <h1 className="card-title">{pokemon.name.toUpperCase()}</h1>
             <div className="card-body">
