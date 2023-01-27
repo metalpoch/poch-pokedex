@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import {
   AiFillInstagram,
   AiFillGithub,
@@ -16,9 +15,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className="nav">
-        <Link className="nav-title" to="/">
-          Pokédex
-        </Link>
+        <h1 className="nav-title">Pokédex</h1>
         <button className="nav-button" onClick={handleShow}>
           <AiOutlineMenu />
         </button>

@@ -1,21 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PokemonContextProvider } from "./context/PokemonContext";
 import Navbar from "./components/Navbar";
-import Home from "./views/Home";
-import About from "./views/About";
-import Other from "./views/Other";
+import Search from "./components/Search";
+import Card from "./components/Card";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/other" element={<Other />} />
-        </Routes>
-      </BrowserRouter>
+      <Navbar />
+      <PokemonContextProvider>
+        <Search />
+        <Card />
+      </PokemonContextProvider>
     </>
   );
 }
